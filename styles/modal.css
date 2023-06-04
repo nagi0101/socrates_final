@@ -161,11 +161,11 @@
 label > img {
     width: 30px;
     margin: 3px;
+    filter: grayscale(100%);
 }
 
-.rating_container > label :nth-child(4),
-.rating_container > label :nth-child(5) {
-    filter: grayscale(100%);
+.rating_container > label:first-child > img {
+  filter: grayscale(0%);
 }
 
 input.rating label {
