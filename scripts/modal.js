@@ -8,7 +8,7 @@ let form = document.querySelector('.modal_input');
 
 function showModal(place) {
     modal.style.display = "block";
-    document.querySelector('.comments_list').innerHTML = place.place_name;
+    document.querySelector('.comments_title').innerHTML = place.place_name;
     document.querySelector('.space_id').innerHTML = place.id;
 }
 
@@ -31,9 +31,12 @@ form.addEventListener('submit', (event) => {
      //    /place_id=456 path
      //tags[{name:'이름'},{name:'이름2}]
 
-  // api.post(path.REVIEWS.url, {
-
-  // })
+  api.post(path.REVIEWS.url, {
+    "tags" : tagList,
+    "place_id" : place_id,
+    "content" : content,
+    "rate" : selectedValue
+  });
 });
 
 function getTagList(tags){

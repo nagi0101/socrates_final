@@ -51,16 +51,30 @@ class API {
 }
 
 class PATH {
-    constructor(string) {
-        this.value = string;
+    constructor(path, parameters={}) {
+        this.path = path;
+        this.parameters = parameters;
     }
 
-    get REVIEWS() { return new PATH(this.value + "/reviews") }
-    get TAGS() { return new PATH(this.value + "/tags") }
+    get REVIEWS() { return new PATH(this.path + "/reviews", this.parameters) }
+    get TAGS() { return new PATH(this.path + "/tags", this.parameters) }
 
-    get url() { return this.value + '/'; }
+    PARAM = (key, value) => { 
+        this.parameters[key] = value;
+        return new PATH(this.path, this.parameters);
+    }
 
-    of = (string) => { return new PATH(this.value + '/' + string) }
+
+    get url() {
+        let url = this.path + '/?';
+        console.log(this.parameters);
+        for (const key in this.parameters) {
+            url += `${key}=${this.parameters[key]}`;
+        }
+        return url; 
+    }
+
+    of = (string) => { return new PATH(this.path + '/' + string, this.parameters) }
 }
 
 const api = new API;
