@@ -1,5 +1,66 @@
+.modal {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 40%;
+    height: 75%;
+    transform: translate(-50%, -50%);
+    background: #FBEAEB;
+    box-shadow: 3px 3px 10px 1px rgba(0, 0, 0, 0.2);
+    display: none;
+}
 .rating_container {
     display: flex;
+}
+
+.modal .close {
+    position: absolute;
+    display: block;
+    text-align: right;
+    cursor: pointer;
+    font-size: 2rem;
+    color: #2E3C7E;
+    top: 3%;
+    right: 5%;
+}
+
+.modal h3 {
+    text-align: center;
+    margin-top: 10%;
+    color: #2E3C7E;
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.modal .modal_input {
+    margin: 10px 40px;
+    height: 80%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+
+.modal input {
+    width: 100%;
+    display: block;
+    border: 0.3rem solid #2E3C7E;
+    border-radius: 50px;
+    padding: 20px 10px;
+    margin: 20px auto;
+    font-size: 1rem;
+}
+
+.modal #submit {
+    width: 100%;
+    display: block;
+    background-color: #2E3C7E;
+    color: #FBEAEB;
+    font-size: 1rem;
+    font-weight: bold;
+    border-radius: 50px;
+    padding: 20px 10px;
+    margin: 20px auto;
+    cursor: pointer;
 }
 
 .rating_container input {
