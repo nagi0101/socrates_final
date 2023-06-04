@@ -1,6 +1,7 @@
 @import url("./reset.css");
 @import url("./main.css");
 @import url("./modal.css");
+@import url("./map.css");
 
 html, body {
     height: 100%;
