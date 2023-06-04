@@ -81,36 +81,28 @@
     cursor: pointer;
 }
 
-*{
-    padding : 0;
-    margin : 0;
-    box-sizing : box-border;
-    font : sans-serif;
-  }
-  
-  
-  .tag_class #input{
-    width : 80vw;
+.tag_class #input{
+    width : 100;
     height : 40px;
-    border : 2px black solid;
+    border : 0.3rem solid #2E3C7E;
     border-radius : 20px;
     display : flex;
     align-items: center;
-    background: darkgray;
+    background: #FBEAEB;
   }
-  
-  .tag_class #input #tag{
+
+.tag_class #input #tag{
     height : 36px;
-    font-size: 25px;
+    font-size: 1rem;
+    font-weight: bold;
     text-align : center;
     line-height: 36px;
-    min-width : 100px;
-    background : black;
-    border-radius: 18px 0 0 18px;
-    margin-left: 2px;
-    color: white;
+    min-width : 5rem;
+    background : #2E3C7E;
+    border-radius: 20px 0 0 20px;
+    color: #FBEAEB;
   }
-  .tag_class #input input{
+.tag_class #input input{
     height : 36px;
     font-size: 25px;
     width : 100%;
@@ -118,18 +110,17 @@
     border : none;
     margin : 0 5px;
   }
-  .tag_class #input input:focus{
+.tag_class #input input:focus{
     outline :none;
   }
-  .tag_class #input:focus-within{
+/* .tag_class #input:focus-within{
     box-shadow: 0 0 5px black;
-   }
-
-  .tag_class #key{
+   } */
+.tag_class #key{
     padding : 5px;
     display : flex;
   }
-  .tag_class .key-item{
+.tag_class .key-item{
     display : inline;
     width : 100%;
     height : 30px;
@@ -138,33 +129,31 @@
     padding : 0 5px;
     line-height: 30px;
     border-radius : 18px;
-    border : 2px solid black;
+    border : 2px solid #141A46;
     margin : 0 2px;
     display: flex;
   }
-  .tag_class .cross{
+.tag_class .cross{
     float : right;
     text-align : center;
     height : 20px;
     line-height: 15px;
     border : 2px solid black;
-    color: white;
+    color: #FBEAEB;
     padding : 2px;
     border-radius: 50%;
-    background: black;
+    background: #141A46;
     margin : 3px 2px;
   }
-  .tag_class .key-item-text{
+.tag_class .key-item-text{
     white-space: nowrap;
   }
-  .tag_class .cross:hover{
-    background: white;
-    color: black;
+.tag_class .cross:hover{
+    background: #FBEAEB;
+    color: #141A46;
   }
-  
-  
-  
 
+  
 .rating_container input {
     display: none;
 }
