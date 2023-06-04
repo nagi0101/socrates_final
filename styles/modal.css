@@ -20,15 +20,11 @@
 }
 
 .modal .comments_list {
+    margin-top : 2%;
     padding: 10px 5px;
-}
-
-.comments_list {
-    display: flex;
-    background-color: white;
-    border: 0.3rem solid #2E3C7E;
-    margin-top: 50px;
-
+    text-align: center;
+    color: #2E3C7E;
+    font-weight: bold;
 }
 
 .rating_container {
@@ -42,7 +38,7 @@
     cursor: pointer;
     font-size: 2rem;
     color: #2E3C7E;
-    top: 3%;
+    top: 1%;
     right: 5%;
 }
 
@@ -156,16 +152,11 @@
 .tag_class .key-item-text{
     white-space: nowrap;
   }
-<<<<<<< Updated upstream
-.tag_class .cross:hover{
-    background: #FBEAEB;
-    color: #141A46;
-=======
+
   .tag_class .cross:hover{
     background: white;
     color: black;
     z-index: 99999999999999999999;
->>>>>>> Stashed changes
   }
 
   
