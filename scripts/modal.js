@@ -6,10 +6,18 @@ let closeBtn = document.querySelector('#closeBtn');
 let submitBtn = document.querySelector('#submit');
 let form = document.querySelector('.modal_input');
 
+function clearTags() {
+  keyElement.innerHTML = "";
+}
+
 function showModal(place) {
-    modal.style.display = "block";
-    document.querySelector('.comments_title').innerHTML = place.place_name;
-    document.querySelector('.space_id').innerHTML = place.id;
+  modal.style.display = "block";
+  document.querySelector('.comments_title').innerHTML = place.place_name;
+  document.querySelector('.space_id').innerHTML = place.id;
+  clearTags();
+  let contentInput = document.getElementById("content");
+  contentInput.value = "";
+  document.getElementById("khuong_3").checked = true;
 }
 
 closeBtn.addEventListener('click', ()=> {
