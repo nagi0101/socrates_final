@@ -1,43 +1,16 @@
-$(document).ready(() => {
-  let options = [];
-  let backspaceCount = 0;
-  $('#search').keyup((event) => {
-    if(event.originalEvent.key === 'Enter' && event.target.value.length > 0){
-    options.push(event.target.value);
-      makeOption();
-      event.target.value = '';
-    }else if(event.originalEvent.key === 'Backspace' && event.target.value.length === 0){
-    backspaceCount++; 
-      if(backspaceCount > 1){
-      options.pop();
-      makeOption();
-      backspaceCount = 0;
-    }
-    }else{
-      backspaceCount = 0;
-    }
-  })
-  
-  function makeOption(){
-    let opt = options.map((op, index) => {
-      return   `
-  <div class="key-item"><p class="key-item-text" >${op}</p>
-<span class="cross" data-id="${index}">X</span>
-      </div>
-  `
-      ;
-    });
-    opt = opt.join('');
-    $('#key').html(opt);
-    $('.cross').click((event) => {
-      options = options.filter((val, index) => index != event.target.dataset.id);
-      makeOption();
-    })
-  }
-});
+//모달창 생성
+let modal = document.querySelector('#modal');
+let closeBtn = document.querySelector('#closeBtn');
 
-/* ====이상 태그 관련 JS==== */
+function showModal() {
+    modal.style.display = "block";
+}
 
+closeBtn.addEventListener('click', ()=> {
+    modal.style.display = "none";
+  });
+
+export {showModal}
 
 document.addEventListener('DOMContentLoaded', () => {
     let options = [];
@@ -81,42 +54,4 @@ document.addEventListener('DOMContentLoaded', () => {
       });
     }
   });
-
-  $(document).ready(() => {
-  let options = [];
-  let backspaceCount = 0;
-  $('#search').keyup((event) => {
-    if(event.originalEvent.key === 'Enter' && event.target.value.length > 0){
-    options.push(event.target.value);
-      makeOption();
-      event.target.value = '';
-    }else if(event.originalEvent.key === 'Backspace' && event.target.value.length === 0){
-    backspaceCount++; 
-      if(backspaceCount > 1){
-      options.pop();
-      makeOption();
-      backspaceCount = 0;
-    }
-    }else{
-      backspaceCount = 0;
-    }
-  })
-  
-  function makeOption(){
-    let opt = options.map((op, index) => {
-      return   `
-  <div class="key-item"><p class="key-item-text" >${op}</p>
-<span class="cross" data-id="${index}">X</span>
-      </div>
-  `
-      ;
-    });
-    opt = opt.join('');
-    $('#key').html(opt);
-    $('.cross').click((event) => {
-      options = options.filter((val, index) => index != event.target.dataset.id);
-      makeOption();
-    })
-  }
-});
   

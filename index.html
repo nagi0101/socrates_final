@@ -9,13 +9,13 @@
     <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=3dba28b40fd17a09466a4aaa2d4e359c&libraries=services"></script>
     <script src="./scripts/main.js" defer type="module"></script>
     <script src="./scripts/modal.js" defer type="module"></script>
-    <script src="./scripts/map.js" defer></script>
+    <script src="./scripts/map.js" defer type="module"></script>
 </head>
 
 <body>
     <header>
         <div class="container">
-            <img src="C:\Users\a\Pictures\Screenshots\스크린샷 2023-06-04 131657.png" alt="">
+            <img src="./images/logo.png" alt="">
 
         </div>
     </header>
@@ -24,7 +24,7 @@
             <div class="map_container">
                 <div id="map" class="map">
                     <div id="map_search">
-                        <form onsubmit="searchByKeyword(); return false;">
+                        <form id="map_search_form">
                             키워드 : <input type="text" value="" id="keyword" size="15"> 
                             <button type="submit">검색</button> 
                         </form>
@@ -35,8 +35,8 @@
                 </div>
             </div>
             
-            <div class="modal">
-              <div class="close">&times;</div>
+            <div id="modal" class="modal">
+              <div id="closeBtn" class="close">&times;</div>
               <div class="modal_container">
                 <div class="comments_list">여기에 입력.</div>
                 <div class="modal_row">
@@ -70,14 +70,13 @@
                 </div>
               </div>
             </div>
+          </div>
           </form>
         </div>
       </div>
     </main>
     <footer>
-        <div class="container">
-            <img src="C:\Users\a\Pictures\Screenshots\스크린샷 2023-06-04 125518.png" alt="">
-        </div>
+        <div class="container"></div>
     </footer>
   </body>
 </html>
