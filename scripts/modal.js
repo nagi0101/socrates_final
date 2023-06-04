@@ -26,17 +26,17 @@ form.addEventListener('submit', (event) => {
   let radioButtons = document.getElementsByName('rating'); 
   let selectedValue = getRadioValue(radioButtons);
 
-  //console.log("태그: "+tagList.innerHTML, "장소id : "+place_id, "댓글 내용"+content, "점수 : "+selectedValue);
+  console.log("태그: "+tagList.innerHTML, "장소id : "+place_id, "댓글 내용 : "+content, "점수 : "+selectedValue);
 
      //    /place_id=456 path
      //tags[{name:'이름'},{name:'이름2}]
 
-  api.post(path.REVIEWS.url, {
-    "tags" : tagList,
-    "place_id" : place_id,
-    "content" : content,
-    "rate" : selectedValue
-  });
+  // api.post(path.REVIEWS.url, {
+  //   "tags" : tagList,
+  //   "place_id" : place_id,
+  //   "content" : content,
+  //   "rate" : selectedValue
+  // });
 });
 
 function getTagList(tags){
