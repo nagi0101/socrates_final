@@ -94,9 +94,9 @@
     background: #FBEAEB;
   }
 
-  .tag_class #input #tag{
-      height : 36px;
-    font-size: 1rem;
+.tag_class #input #tag{
+    height : 36px;
+    font-size: 0.8rem;
     font-weight: bold;
     text-align : center;
     line-height: 36px;
@@ -107,9 +107,9 @@
   }
 .tag_class #input input{
     height : 36px;
-    font-size: 25px;
+    font-size: 20px;
     width : 100%;
-    background : transparent;
+    background: transparent;
     border : none;
     margin : 0 5px;
   }
@@ -123,9 +123,7 @@
        padding : 5px;
        display : flex;
   }
-  .tag_class .key-item{
-    display : inline;
-    width : 100%;
+.tag_class .key-item{
     height : 30px;
     font-size: 20px;
     text-align : center;
@@ -134,14 +132,14 @@
     border-radius : 18px;
     border : 2px solid #141A46;
     margin : 0 2px;
-    display: flex;
-}
+    display: inline-flex;
+  }
 .tag_class .cross{
     float : right;
     text-align : center;
     height : 20px;
     line-height: 15px;
-    border : 2px solid black;
+    border : 2px solid #141A46;
     color: #FBEAEB;
     padding : 2px;
     border-radius: 50%;
