@@ -87,18 +87,17 @@ function displayPlaces(places) {
     removeMarker();
     
     for ( var i=0; i<places.length; i++ ) {
-
+        let placeItem = places[i];
         var placePosition = new kakao.maps.LatLng(places[i].y, places[i].x),
             marker = addMarker(placePosition, i),
             itemEl = getListItem(i, places[i]); // 검색 결과 항목 Element를 생성합니다
-            console.log("아이템:"+itemEl.innerHTML);
-
         bounds.extend(placePosition);
 
         (function(marker, title) {
-            kakao.maps.event.addListener(marker, 'click', showModal);
+            kakao.maps.event.addListener(marker, 'click', ()=> {
+                showModal(placeItem);
+              });
 
-        
             kakao.maps.event.addListener(marker, 'mouseover', function() {
                 displayInfowindow(marker, title);
             });
@@ -224,5 +223,3 @@ function displayInfowindow(marker, title) {
     infowindow.setContent(content);
     infowindow.open(map, marker);
 }
-
-//3. 클릭하면 모달창 나옴

@@ -23,6 +23,11 @@
     padding: 10px 5px;
 }
 
+.modal .space_id{
+    display: none;
+}
+
+
 .rating_container {
     display: flex;
 }
