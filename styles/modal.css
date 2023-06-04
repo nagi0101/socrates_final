@@ -27,13 +27,7 @@
     font-weight: bold;
 }
 
-.comments_list {
-    display: flex;
-    background-color: white;
-    border: 0.3rem solid #2E3C7E;
-    margin-top: 50px;
 
-}
 
 
 .modal .close {
@@ -167,14 +161,6 @@
     z-index: 99999999999999999999;
   }
 
-.rating_container {
-    display: flex;
-    justify-content: space-evenly;
-    align-items: center;
-    background-color: white;
-    border: 0.3rem solid #2E3C7E;
-    border-radius: 50px;
-}
 
 .rating_container input {
     display: none;
