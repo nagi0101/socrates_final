@@ -23,6 +23,14 @@
     padding: 10px 5px;
 }
 
+.comments_list {
+    display: flex;
+    background-color: white;
+    border: 0.3rem solid #2E3C7E;
+    margin-top: 50px;
+
+}
+
 .rating_container {
     display: flex;
 }
