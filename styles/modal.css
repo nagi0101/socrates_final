@@ -8,6 +8,7 @@
     background: #FBEAEB;
     box-shadow: 3px 3px 10px 1px rgba(0, 0, 0, 0.2);
     display: none;
+    z-index: 9999;
 }
 
 .modal .modal_container {
