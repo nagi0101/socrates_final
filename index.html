@@ -1,12 +1,14 @@
 <!DOCTYPE html>
 <html lang="ko">
-  <head>
+
+<head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>경희맛집</title>
     <link rel="stylesheet" href="./styles/style.css">
-    <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=3dba28b40fd17a09466a4aaa2d4e359c&libraries=services"></script>
+    <script type="text/javascript"
+        src="//dapi.kakao.com/v2/maps/sdk.js?appkey=3dba28b40fd17a09466a4aaa2d4e359c&libraries=services"></script>
     <script src="./scripts/main.js" defer type="module"></script>
     <script src="./scripts/modal.js" defer type="module"></script>
     <script src="./scripts/map.js" defer type="module"></script>
@@ -26,8 +28,8 @@
                 <div id="map" class="map">
                     <div id="map_search">
                         <form id="map_search_form">
-                            키워드 : <input type="text" value="" id="keyword" size="15"> 
-                            <button type="submit">검색</button> 
+                            키워드 : <input type="text" value="" id="keyword" size="15">
+                            <button type="submit">검색</button>
                         </form>
                         <hr>
                         <ul id="placesList"></ul>
@@ -35,7 +37,7 @@
                     </div>
                 </div>
             </div>
-            
+
             <div id="modal" class="modal">
               <div id="closeBtn" class="close">&times;</div>
               <div class="modal_container">
@@ -76,42 +78,42 @@
                             <span class="tags">#포장시_할인</span>
                         </div>
                     </div>
-                </div>
-                <div class="modal_row">
-                <form action="javascript:void(0);" class="modal_input">
-                    <h3>----------------</h3>
-                    <input type="text" id="content" placeholder="내용 입력">
-                    <div class="rating_container">
-                        <label for="khuong_1"><img src="./images/khuong.png" alt="별점" /></label>
-                        <input type="radio" name="rating" class="rating" id="khuong_1" value="1" checked />
-                        <label for="khuong_2"><img src="./images/khuong.png" alt="별점" /></label>
-                        <input type="radio" name="rating" class="rating" id="khuong_2" value="2" />
-                        <label for="khuong_3"><img src="./images/khuong.png" alt="별점" /></label>
-                        <input type="radio" name="rating" class="rating" id="khuong_3" value="3" />
-                        <label for="khuong_4"><img src="./images/khuong.png" alt="별점" /></label>
-                        <input type="radio" name="rating" class="rating" id="khuong_4" value="4" />
-                        <label for="khuong_5"><img src="./images/khuong.png" alt="별점" /></label>
-                        <input type="radio" name="rating" class="rating" id="khuong_5" value="5" />
+                    <div class="modal_row">
+                        <form action="javascript:void(0);" class="modal_input">
+                            <h3>----------------</h3>
+                            <input type="text" id="content" placeholder="내용 입력">
+                            <div class="rating_container">
+                                <label for="khuong_1"><img src="./images/khuong.png" alt="별점" /></label>
+                                <input type="radio" name="rating" class="rating" id="khuong_1" value="1" checked />
+                                <label for="khuong_2"><img src="./images/khuong.png" alt="별점" /></label>
+                                <input type="radio" name="rating" class="rating" id="khuong_2" value="2" />
+                                <label for="khuong_3"><img src="./images/khuong.png" alt="별점" /></label>
+                                <input type="radio" name="rating" class="rating" id="khuong_3" value="3" />
+                                <label for="khuong_4"><img src="./images/khuong.png" alt="별점" /></label>
+                                <input type="radio" name="rating" class="rating" id="khuong_4" value="4" />
+                                <label for="khuong_5"><img src="./images/khuong.png" alt="별점" /></label>
+                                <input type="radio" name="rating" class="rating" id="khuong_5" value="5" />
+                            </div>
+                            <div class="tag_class">
+                                <div id="input">
+                                    <span id="tag">태그달기</span>
+                                    <input id="search" />
+                                </div>
+                                <div id="key_container"></div>
+                            </div>
+                            <button type="submit" id="submit">등록</button>
+                        </form>
                     </div>
-                    <div class="tag_class">
-                        <div id="input">
-                            <span id="tag">태그달기</span>
-                            <input id="search"/>
-                        </div>
-                        <div id="key_container"></div>    
-                    </div>
-                    <button type="submit" id="submit">등록</button>
-                </form>
                 </div>
-              </div>
             </div>
-          </div>
-          </form>
         </div>
-      </div>
+        </form>
+        </div>
+        </div>
     </main>
     <footer>
         <div class="container"></div>
     </footer>
-  </body>
+</body>
+
 </html>
