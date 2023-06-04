@@ -1,5 +1,8 @@
 
+import {showModal} from './modal.js';
+
 const kh_university = new kakao.maps.LatLng(37.596808212906474, 127.05321637587708)
+const map_form =  document.querySelector('#map_search_form').addEventListener("submit",searchByKeyword);;
 var markers = [];
 var infowindow = new kakao.maps.InfoWindow({zIndex:1});
 var mapContainer = document.getElementById('map'), // 지도를 표시할 div 
@@ -18,7 +21,6 @@ ps.categorySearch('FD6', placesSearchCategory, {
 function placesSearchCategory (data, status, pagination) {
     if (status === kakao.maps.services.Status.OK) {
         for (var i=0; i<data.length; i++) {
-            console.log(data[i]);
             displayMarkerCategory(data[i]);    
         }       
     }
@@ -37,9 +39,8 @@ function displayMarkerCategory(place) {
 }
 
 //2. 검색창 검색
-function searchByKeyword() {
-    console.log("실행");
-
+function searchByKeyword(e) {
+    e.preventDefault();
     var keyword = document.getElementById('keyword').value;
 
     if (!keyword.replace(/^\s+|\s+$/g, '')) {
@@ -90,10 +91,14 @@ function displayPlaces(places) {
         var placePosition = new kakao.maps.LatLng(places[i].y, places[i].x),
             marker = addMarker(placePosition, i),
             itemEl = getListItem(i, places[i]); // 검색 결과 항목 Element를 생성합니다
+            console.log("아이템:"+itemEl.innerHTML);
 
         bounds.extend(placePosition);
 
         (function(marker, title) {
+            kakao.maps.event.addListener(marker, 'click', showModal);
+
+        
             kakao.maps.event.addListener(marker, 'mouseover', function() {
                 displayInfowindow(marker, title);
             });
@@ -163,7 +168,6 @@ function addMarker(position, idx, title) {
 
     marker.setMap(map); // 지도 위에 마커를 표출합니다
     markers.push(marker);  // 배열에 생성된 마커를 추가합니다
-
     return marker;
 }
 
@@ -217,7 +221,6 @@ function displayPagination(pagination) {
 // 인포윈도우에 장소명을 표시합니다
 function displayInfowindow(marker, title) {
     var content = '<div style="padding:5px;z-index:1;">' + title + '</div>';
-
     infowindow.setContent(content);
     infowindow.open(map, marker);
 }
