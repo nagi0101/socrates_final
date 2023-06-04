@@ -4,11 +4,24 @@
     top: 50%;
     left: 50%;
     width: 40%;
-    height: 75%;
+    height: 90%;
     transform: translate(-50%, -50%);
     background: #FBEAEB;
     box-shadow: 3px 3px 10px 1px rgba(0, 0, 0, 0.2);
+    display: none;
 }
+
+.modal .modal_container {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.modal .comments_list {
+    padding: 10px 5px;
+}
+
 .rating_container {
     display: flex;
 }
@@ -34,10 +47,14 @@
 
 .modal .modal_input {
     margin: 10px 40px;
-    height: 80%;
+    height: 95%;
     display: flex;
     flex-direction: column;
-    justify-content: space-evenly;
+    justify-content: flex-end;
+}
+
+.modal .modal_row {
+    position: relative;
 }
 
 .modal input {
@@ -45,8 +62,8 @@
     display: block;
     border: 0.3rem solid #2E3C7E;
     border-radius: 50px;
-    padding: 20px 10px;
-    margin: 20px auto;
+    padding: 10px 5px;
+    margin: 10px auto;
     font-size: 1rem;
 }
 
@@ -58,10 +75,94 @@
     font-size: 1rem;
     font-weight: bold;
     border-radius: 50px;
-    padding: 20px 10px;
-    margin: 20px auto;
+    padding: 10px 5px;
+    margin: 10px auto;
     cursor: pointer;
 }
+
+*{
+    padding : 0;
+    margin : 0;
+    box-sizing : box-border;
+    font : sans-serif;
+  }
+  
+  
+  .tag_class #input{
+    width : 80vw;
+    height : 40px;
+    border : 2px black solid;
+    border-radius : 20px;
+    display : flex;
+    align-items: center;
+    background: darkgray;
+  }
+  
+  .tag_class #input #tag{
+    height : 36px;
+    font-size: 25px;
+    text-align : center;
+    line-height: 36px;
+    min-width : 100px;
+    background : black;
+    border-radius: 18px 0 0 18px;
+    margin-left: 2px;
+    color: white;
+  }
+  .tag_class #input input{
+    height : 36px;
+    font-size: 25px;
+    width : 100%;
+    background : transparent;
+    border : none;
+    margin : 0 5px;
+  }
+  .tag_class #input input:focus{
+    outline :none;
+  }
+  .tag_class #input:focus-within{
+    box-shadow: 0 0 5px black;
+   }
+
+  .tag_class #key{
+    padding : 5px;
+    display : flex;
+  }
+  .tag_class .key-item{
+    display : inline;
+    width : 100%;
+    height : 30px;
+    font-size: 20px;
+    text-align : center;
+    padding : 0 5px;
+    line-height: 30px;
+    border-radius : 18px;
+    border : 2px solid black;
+    margin : 0 2px;
+    display: flex;
+  }
+  .tag_class .cross{
+    float : right;
+    text-align : center;
+    height : 20px;
+    line-height: 15px;
+    border : 2px solid black;
+    color: white;
+    padding : 2px;
+    border-radius: 50%;
+    background: black;
+    margin : 3px 2px;
+  }
+  .tag_class .key-item-text{
+    white-space: nowrap;
+  }
+  .tag_class .cross:hover{
+    background: white;
+    color: black;
+  }
+  
+  
+  
 
 .rating_container input {
     display: none;

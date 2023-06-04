@@ -1,5 +1,11 @@
 /* map */
-#map {width: 80%; height: 500px;}
+#map {
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    width: 100%;
+    height: 100vh;
+}
 
 
 .map_wrap {
@@ -7,9 +13,10 @@
     width:100%;
     height:500px;
 }
+
 #map_search {
     position:absolute;
-    top:0;left:0;bottom:0;
+    top:0;right:0;bottom:0;
     width:250px;
     margin:10px 0 30px 10px;
     padding:5px;
@@ -19,6 +26,7 @@
     font-size:12px;
     border-radius: 10px;
 }
+
 .bg_white {background:#fff;}
 #map_search hr {display: block; height: 1px;border: 0; border-top: 2px solid #5F5F5F;margin:3px 0;}
 #map_search .option{text-align: center;}
