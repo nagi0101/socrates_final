@@ -1,8 +1,8 @@
 const searchInput = document.getElementById("search");
-const keyElement = document.getElementById("key");
+const keyElement = document.getElementById("key_container");
 
 function makeOption(text) {
-    const keyItem = document.createElement("div");
+    const keyItem = document.createElement("span");
     keyItem.classList.add("key-item");
 
     const keyItemText = document.createElement("p");
