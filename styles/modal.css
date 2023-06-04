@@ -172,11 +172,7 @@
 label > img {
     width: 30px;
     margin: 3px;
-    filter: grayscale(100%);
-}
-
-.rating_container > label:first-child > img {
-  filter: grayscale(0%);
+    filter: grayscale(0%);
 }
 
 input.rating label {
