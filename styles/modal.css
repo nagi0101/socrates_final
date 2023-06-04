@@ -41,9 +41,17 @@
     right: 5%;
 }
 
+.comments_title{
+    text-align: center;
+    margin-top: 4%;
+    color: #2E3C7E;
+    font-size: 1.3rem;
+    font-weight: bold;
+}
+
 .modal h3 {
     text-align: center;
-    margin-top: 10%;
+    margin-top: 5%;
     color: #2E3C7E;
     font-size: 1.5rem;
     font-weight: bold;
