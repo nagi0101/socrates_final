@@ -8,7 +8,7 @@
     transform: translate(-50%, -50%);
     background: #FBEAEB;
     box-shadow: 3px 3px 10px 1px rgba(0, 0, 0, 0.2);
-    display: none;
+    /* display: none; */
     z-index: 9999;
 }
 
@@ -21,6 +21,14 @@
 
 .modal .comments_list {
     padding: 10px 5px;
+}
+
+.comments_list {
+    display: flex;
+    background-color: white;
+    border: 0.3rem solid #2E3C7E;
+    margin-top: 50px;
+
 }
 
 .rating_container {
