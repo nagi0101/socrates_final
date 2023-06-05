@@ -67,7 +67,6 @@ class PATH {
 
     get url() {
         let url = this.path + '/?';
-        console.log(this.parameters);
         for (const key in this.parameters) {
             url += `${key}=${this.parameters[key]}`;
         }
