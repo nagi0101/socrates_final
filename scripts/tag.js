@@ -21,7 +21,7 @@ function makeOption(text) {
   keyElement.appendChild(keyItem);
 }
 
-searchInput.addEventListener("keyup", (event) => {
+searchInput.addEventListener("keydown", (event) => {
   event.preventDefault();
   event.stopPropagation();
   if (event.key === "Enter" && event.target.value.length > 0) {
