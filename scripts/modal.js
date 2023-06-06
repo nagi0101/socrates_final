@@ -73,6 +73,7 @@ form.addEventListener('submit', async (event) => {
   let rawTagList = Array.from(document.querySelectorAll('.key-item-text'));
   let tagList = getTagList(rawTagList);
   let place_id = document.querySelector('.space_id').innerHTML;
+  let place_name = document.querySelector('.comments_title').innerHTML;
   let content = document.querySelector('#content').value;
   let radioButtons = document.getElementsByName('rating');
   let selectedValue = getRadioValue(radioButtons);
@@ -80,6 +81,7 @@ form.addEventListener('submit', async (event) => {
   const response = await api.post(path.REVIEWS.url, {
     content: content,
     place_id: place_id,
+    place_name : place_name,
     rate: selectedValue,
     tags: tagList
   });
