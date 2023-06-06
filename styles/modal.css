@@ -205,5 +205,11 @@ input.rating:checked ~ label {
     }
 }
 
+@media (max-width: 576px) {
+    .modal {
+        width:80%;
+    }
+}
+
 
   
