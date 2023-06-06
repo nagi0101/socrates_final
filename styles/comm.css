@@ -26,6 +26,8 @@
   height: 95%;
   background: #fbeaeb;
   word-wrap: break-word;
+  text-align: center;
+  font-weight: bold;
 }
 
 .comments_rating {
@@ -62,6 +64,8 @@
 .tags {
   margin: 2px;
   color: #408415;
+  text-align: center;
+  font-weight: bold;
 }
 
 .tags::before {
