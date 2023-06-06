@@ -1,5 +1,6 @@
 
 import {showModal} from './modal.js';
+import {api,path} from './api.js';
 
 const kh_university = new kakao.maps.LatLng(37.596808212906474, 127.05321637587708)
 const map_form =  document.querySelector('#map_search_form').addEventListener("submit",searchByKeyword);;
@@ -37,6 +38,26 @@ function displayMarkerCategory(place) {
         infowindow.open(map, marker);
     });
 }
+
+//1.5
+
+//GET으로 전체 댓글 받아오기
+async function getAllReviewedPlaceNm() {
+    const reviewsData = await api.get(path.REVIEWS.url);
+    const reviewPlaceNmList = new Set();
+    reviewsData.forEach((reviewData) => {
+        console.log(reviewData);
+    })
+  }
+
+  getAllReviewedPlaceNm();
+
+//placeNm 배열로 가져오기 (중복허용 x)
+
+//placeNm 각각 kakaoApi로 요청해서 장소 객체 받아오기
+
+//장소 객체 바탕으로 
+
 
 //2. 검색창 검색
 function searchByKeyword(e) {
