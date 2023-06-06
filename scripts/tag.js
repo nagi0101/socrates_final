@@ -22,9 +22,9 @@ function makeOption(text) {
 }
 
 searchInput.addEventListener("keydown", (event) => {
-  event.preventDefault();
-  event.stopPropagation();
   if (event.key === "Enter" && event.target.value.length > 0) {
+    event.preventDefault();
+    event.stopPropagation();
     makeOption(event.target.value);
     event.target.value = "";
   }
