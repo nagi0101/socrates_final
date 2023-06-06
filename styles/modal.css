@@ -193,16 +193,17 @@ input.rating:checked ~ label {
     filter: grayscale(100%);
 }
 
+@media (max-width: 1199px) {
+    .modal {
+        width: 50%;
+    }
+}
+
 @media (max-width: 767px) {
     .modal {
         width:60%;
     }
 }
 
-@media (max-width: 1199px) {
-    .modal {
-        width: 50%;
-    }
-}
 
   
