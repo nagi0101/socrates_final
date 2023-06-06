@@ -29,7 +29,7 @@ async function showReview(placeId) {
   reviewsData.forEach((reviewData) => {
     const reviewElement = createReviewElement(reviewData);
     reviewContainer.appendChild(reviewElement);
-  })
+  });
 }
 
 function createReviewElement(reviewData) {
