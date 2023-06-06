@@ -7,7 +7,7 @@
     transform: translate(-50%, -50%);
     background: #FBEAEB;
     box-shadow: 3px 3px 10px 1px rgba(0, 0, 0, 0.2);
-    /* display: none; */
+    display: none;
     z-index: 9999;
 }
 
@@ -192,9 +192,9 @@ input.rating:checked ~ label {
     filter: grayscale(100%);
 }
 
-  @media (min-width: 321px) and (max-width: 767px) {
+@media (min-width: 321px) and (max-width: 767px) {
     .modal {
-        width: 40%;
+        width:60%;
     }
 }
 
@@ -206,7 +206,7 @@ input.rating:checked ~ label {
 
 @media (min-width: 1440px) {
     .modal {
-        width: 60%;
+        width: 40%;
     }
-  }
+}
   
