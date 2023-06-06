@@ -12,51 +12,68 @@ var mapContainer = document.getElementById('map'), // 지도를 표시할 div
         level: 5 // 지도의 확대 레벨
     };  
 var map = new kakao.maps.Map(mapContainer, mapOption); 
+const ps = new kakao.maps.services.Places(map); 
 
 //1. 카테고리 검색
-var ps = new kakao.maps.services.Places(map); 
-ps.categorySearch('FD6', placesSearchCategory, {
-    useMapBounds:true
-    }); 
+// ps.categorySearch('FD6', placesSearchCategory, {
+//     useMapBounds:true
+//     }); 
 
-function placesSearchCategory (data, status, pagination) {
-    if (status === kakao.maps.services.Status.OK) {
-        for (var i=0; i<data.length; i++) {
-            displayMarkerCategory(data[i]);    
-        }       
-    }
-}
+// function placesSearchCategory (data, status, pagination) {
+//     if (status === kakao.maps.services.Status.OK) {
+//         for (var i=0; i<data.length; i++) {
+//             displayMarkerCategory(data[i]);    
+//         }       
+//     }
+// }
 
-function displayMarkerCategory(place) {
-    var marker = new kakao.maps.Marker({
-        map: map,
-        position: new kakao.maps.LatLng(place.y, place.x) 
-    });
+// function displayMarkerCategory(place) {
+//     var marker = new kakao.maps.Marker({
+//         map: map,
+//         position: new kakao.maps.LatLng(place.y, place.x) 
+//     });
 
-    kakao.maps.event.addListener(marker, 'click', function() {
-        infowindow.setContent('<div style="padding:5px;font-size:12px;">' + place.place_name + '</div>');
-        infowindow.open(map, marker);
-    });
-}
+//     kakao.maps.event.addListener(marker, 'click', function() {
+//         infowindow.setContent('<div style="padding:5px;font-size:12px;">' + place.place_name + '</div>');
+//         infowindow.open(map, marker);
+//     });
+// }
 
 //1.5
 
 //GET으로 전체 댓글 받아오기
+getReviewdPlaceList();
+ //저장된 장소 객체 kakao API에서 받아오기
+
+
+async function getReviewdPlaceList(){
+    const reviewPlaceNmSet = await getAllReviewedPlaceNm();  
+    return await getReviewPlaceDataSet(reviewPlaceNmSet);
+}
+
 async function getAllReviewedPlaceNm() {
-    const reviewsData = await api.get(path.REVIEWS.url);
-    const reviewPlaceNmList = new Set();
+    let reviewsData = await api.get(path.REVIEWS.url);
+    //placeNm 배열로 가져오기 (중복허용 x)
+    let reviewPlaceNmSet = new Set();
     reviewsData.forEach((reviewData) => {
-        console.log(reviewData);
-    })
-  }
+        reviewPlaceNmSet.add(reviewData.place_name);
+    });
+    return reviewPlaceNmSet;
+}
 
-  getAllReviewedPlaceNm();
+//가게 이름으로 객체 검색해서 카카오맵에서 정보 가져오기
+async function getReviewPlaceDataSet(reviewPlaceNmSet) {
+    Array.from(reviewPlaceNmSet).forEach((reviewPlaceNm) => {
+        ps.keywordSearch(reviewPlaceNm,placeSearchKeyWordCB,
+            {
+                category_group_code : 'FD6',
+                location : kh_university,
+                radius: 1000
+            });
+    });
+} 
 
-//placeNm 배열로 가져오기 (중복허용 x)
-
-//placeNm 각각 kakaoApi로 요청해서 장소 객체 받아오기
-
-//장소 객체 바탕으로 
+//정보 marker로 표시하기
 
 
 //2. 검색창 검색
@@ -75,6 +92,29 @@ function searchByKeyword(e) {
             location : kh_university,
             radius: 1000
         }); 
+}
+
+function placeSearchKeyWordCB(result, status) {
+    if (status === kakao.maps.services.Status.OK) {
+        //marker 생성
+        let placePosition = new kakao.maps.LatLng(result[0].y, result[0].x);
+        let imageSrc = "https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/markerStar.png";
+        let imageSize = new kakao.maps.Size(24, 35);
+        let markerImage = new kakao.maps.MarkerImage(imageSrc, imageSize); 
+        let resultMarker = makeMarker(placePosition,markerImage);
+
+        kakao.maps.event.addListener(resultMarker, 'click', ()=> {
+            showModal(result[0]);
+          });
+
+        kakao.maps.event.addListener(resultMarker, 'mouseover', function() {
+            displayInfowindow(resultMarker, result[0].place_name);
+        });
+
+        kakao.maps.event.addListener(resultMarker, 'mouseout', function() {
+            infowindow.close();
+        });
+    }
 }
 
 function placesSearchKeyWordCB(data, status, pagination) {
@@ -109,7 +149,7 @@ function displayPlaces(places) {
     
     for ( var i=0; i<places.length; i++ ) {
         let placeItem = places[i];
-        var placePosition = new kakao.maps.LatLng(places[i].y, places[i].x),
+        var placePosition = new kakao.maps.LatLng(Number(places[i].y), Number(places[i].x)),
             marker = addMarker(placePosition, i),
             itemEl = getListItem(i, places[i]); // 검색 결과 항목 Element를 생성합니다
         bounds.extend(placePosition);
@@ -171,6 +211,17 @@ function getListItem(index, places) {
     return el;
 }
 
+function makeMarker(position,markerImage){
+    var marker = new kakao.maps.Marker({
+        position: position, // 마커의 위치
+        image: markerImage,
+        map: map
+    });
+    console.log(marker);
+    return marker;
+
+}
+
 // 마커를 생성하고 지도 위에 마커를 표시하는 함수입니다
 function addMarker(position, idx, title) {
     var imageSrc = 'https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/marker_number_blue.png', // 마커 이미지 url, 스프라이트 이미지를 씁니다
@@ -181,12 +232,7 @@ function addMarker(position, idx, title) {
             offset: new kakao.maps.Point(13, 37) // 마커 좌표에 일치시킬 이미지 내에서의 좌표
         },
         markerImage = new kakao.maps.MarkerImage(imageSrc, imageSize, imgOptions),
-            marker = new kakao.maps.Marker({
-            position: position, // 마커의 위치
-            image: markerImage 
-        });
-
-    marker.setMap(map); // 지도 위에 마커를 표출합니다
+            marker = makeMarker(position,markerImage);
     markers.push(marker);  // 배열에 생성된 마커를 추가합니다
     return marker;
 }
