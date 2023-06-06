@@ -1,7 +1,7 @@
 class API {
     API_PROTOCOL = "https";
-    API_DOMAIN = "3.104.17.38";
-    API_PORT = 8000;
+    API_DOMAIN = "socrates-backend.ddns.net";
+    API_PORT = null;
 
     get API_BASE_URL() {
         return `${this.API_PROTOCOL}://${this.API_DOMAIN}${this.API_PORT ? ':' + this.API_PORT : ""}`;
