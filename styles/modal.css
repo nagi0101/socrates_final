@@ -1,4 +1,5 @@
 .modal {
+    width: 40%;
     position: absolute;
     z-index: 9999;
     top: 50%;
@@ -192,21 +193,16 @@ input.rating:checked ~ label {
     filter: grayscale(100%);
 }
 
-@media (min-width: 321px) and (max-width: 767px) {
+@media (max-width: 767px) {
     .modal {
         width:60%;
     }
 }
 
-@media (min-width: 1024px) and (max-width: 1199px) {
+@media (max-width: 1199px) {
     .modal {
         width: 50%;
     }
 }
 
-@media (min-width: 1440px) {
-    .modal {
-        width: 40%;
-    }
-}
   
