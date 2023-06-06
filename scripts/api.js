@@ -1,5 +1,5 @@
 class API {
-    API_PROTOCOL = "http";
+    API_PROTOCOL = "https";
     API_DOMAIN = "3.104.17.38";
     API_PORT = 8000;
 
