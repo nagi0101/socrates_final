@@ -15,6 +15,16 @@
   font-size: 1rem;
   background-color: white;
   word-wrap: break-word;
+  animation: backInUp 0.5s;
+}
+
+@keyframes backInUp {
+    from {
+        transform: translateY(50px);
+    }
+    to {
+        transform: translateY(0);
+     }
 }
 
 .comments_text {
