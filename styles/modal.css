@@ -1,5 +1,6 @@
 .modal {
     animation: fadein 0.5s;
+    width: 40%;
     position: absolute;
     z-index: 9999;
     top: 50%;
@@ -8,7 +9,7 @@
     transform: translate(-50%, -50%);
     background: #FBEAEB;
     box-shadow: 3px 3px 10px 1px rgba(0, 0, 0, 0.2);
-    /* display: none; */
+    display: none;
     z-index: 9999;
 }
 @keyframes fadein {
@@ -203,21 +204,23 @@ input.rating:checked ~ label {
     filter: grayscale(100%);
 }
 
-  @media (min-width: 321px) and (max-width: 767px) {
-    .modal {
-        width: 40%;
-    }
-}
-
-@media (min-width: 1024px) and (max-width: 1199px) {
+@media (max-width: 1199px) {
     .modal {
         width: 50%;
     }
 }
 
-@media (min-width: 1440px) {
+@media (max-width: 767px) {
     .modal {
-        width: 60%;
+        width:60%;
     }
-  }
+}
+
+@media (max-width: 576px) {
+    .modal {
+        width:80%;
+    }
+}
+
+
   
