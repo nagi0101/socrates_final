@@ -55,6 +55,7 @@ function createReviewElement(reviewData) {
     tagsContainer.classList.add("comments_tag");
     reviewData.tags.forEach((tag) => {
       const tagElement = document.createElement("span");
+      tagElement.classList.add("tags");
       tagElement.innerText = tag.name;
       tagsContainer.appendChild(tagElement);
     })
