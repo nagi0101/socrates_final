@@ -14,33 +14,6 @@ var mapContainer = document.getElementById('map'), // 지도를 표시할 div
 var map = new kakao.maps.Map(mapContainer, mapOption); 
 const ps = new kakao.maps.services.Places(map); 
 
-//1. 카테고리 검색
-// ps.categorySearch('FD6', placesSearchCategory, {
-//     useMapBounds:true
-//     }); 
-
-// function placesSearchCategory (data, status, pagination) {
-//     if (status === kakao.maps.services.Status.OK) {
-//         for (var i=0; i<data.length; i++) {
-//             displayMarkerCategory(data[i]);    
-//         }       
-//     }
-// }
-
-// function displayMarkerCategory(place) {
-//     var marker = new kakao.maps.Marker({
-//         map: map,
-//         position: new kakao.maps.LatLng(place.y, place.x) 
-//     });
-
-//     kakao.maps.event.addListener(marker, 'click', function() {
-//         infowindow.setContent('<div style="padding:5px;font-size:12px;">' + place.place_name + '</div>');
-//         infowindow.open(map, marker);
-//     });
-// }
-
-//1.5
-
 //GET으로 전체 댓글 받아오기
 getReviewdPlaceList();
  //저장된 장소 객체 kakao API에서 받아오기
@@ -217,7 +190,7 @@ function makeMarker(position,markerImage){
         image: markerImage,
         map: map
     });
-    console.log(marker);
+    //console.log(marker);
     return marker;
 
 }
